@@ -3,16 +3,18 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URL'] = 'sqllite:///test.db'
-db = SQLAlchemy(app)
+# app.config['SQLALCHEMY_DATABASE_URL'] = 'sqllite:///test.db'
+# db = SQLAlchemy(app)
+# db.init_app(app)
 
-class collection(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(200), nullable=False)
-    completed = db.Column(db.Integer, default=0)
 
-    def __repr__(self):
-        return '<Task %r>' % self.id
+# class collection(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     content = db.Column(db.String(200), nullable=False)
+#     completed = db.Column(db.Integer, default=0)
+
+#     def __repr__(self):
+#         return '<Task %r>' % self.id
 
 @app.route('/')
 def index():

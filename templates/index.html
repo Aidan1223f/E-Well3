@@ -4,12 +4,15 @@
 <h1>E-Well</h1>
 
 <!-- creates a form for txt input -sends to action_page.php -->
-<form action="/action_page.php">
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname"><br><br>
-    <label for="lname">Last name:</label>
-    <input type="text" id="lname" name="lname"><br><br>
-    <input type="submit" value="Submit">
+<form action="/action_page.php" method="post">
+    <label for="name">name (first last):</label>
+    <input type="text" id="name"><br><br>
+
+    <label for="message">How could I be of assistance? Please give me a 3-5 sentence explanation of your current situation so I can get a better understanding.</label>
+    <textarea id="messagae"></textarea>
+
+    <button> Submit </button>
+
 </form>
 
 {% endblock %}
