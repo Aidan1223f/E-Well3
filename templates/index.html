@@ -3,17 +3,16 @@
 {% block head %} 
 <h1>E-Well</h1>
 
-<!-- creates a form for txt input -sends to action_page.php -->
-<form action="/action_page.php" method="post">
+<form action="#" method="post">
     <label for="name">name (first last):</label>
-    <input type="text" id="name"><br><br>
+    <input type="text" id="name" name="nm"><br><br> 
 
-    <label for="message">How could I be of assistance? Please give me a 3-5 sentence explanation of your current situation so I can get a better understanding.</label>
-    <textarea id="messagae"></textarea>
+    <label for="message">{{content}}</label>
+    <textarea id="message" name="message"></textarea>
 
-    <button> Submit </button>
-
+    <button type="submit">Submit</button> 
 </form>
+
 
 {% endblock %}
 
