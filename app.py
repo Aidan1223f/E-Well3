@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, url_for, redirect, request
+from flask import Flask, flash, render_template, session, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -7,32 +7,44 @@ import numpy as np
 import re 
 import string
 from nltk.corpus import stopwords
+nltk.download('stopwords')
+
+from branchLogic import sentiment_analysis, pre_processing
 
 app = Flask(__name__)
 app.secret_key = "bello"
+# app.config['SQLALCHEMY_DATABASE_URL'] = 'sqllite///db.sqlite3'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db = SQLAlchemy(app)
 
-app.config['SQLALCHEMY_DATABASE_URL'] = 'sqllite///db.sqlite3'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
+# class User(db.Model):
+#   id = db.Column(db.Integer, primary_key=True)
+#   name = db.Column(db.String(50))
+  
 logic = {1: "Hello! My name is Codi. What is your name?",
          2: "How could I be of assistance? Please give me a 3-5 sentence explanation of your current situation so I can get a better understanding.",
+         3: "TEST",
          }
-
-class User(db.Model):
-  id = db.Column(db.Integer, primary_key=True)
-  name = db.Column(db.String(50))
+log_i = 1
+person = {
   
 
+}
 
 
 @app.route('/', methods=["POST", "GET"])
 def index():
-  content = logic[1]
+  content = logic[log_i + 1]
   if request.method == "POST":
-    # user = request.form["name"]
     message = request.form["message"]
-    return redirect(url_for("message",msg=message))
+    message = pre_processing(message)
+
+    user = request.form["name"]
+    age = request.form["age"]
+
+    person = {"user": user, "age": age, "message": message}
+    print(person)
+    return render_template('questionare.html', content=content)
   else:
     return render_template('index.html', content=content)
 
@@ -45,7 +57,8 @@ def log():
     #redirects to a url "user" displaying the user's name
     return redirect(url_for("user"))
   else:
-    return render_template('login.html')
+    if "user" in session:
+      return render_template('login.html')
 
 
 @app.route("/user")
@@ -63,20 +76,14 @@ def logout():
   session.pop("user", None)
   return render_template('login.html')
 
-@app.route("/<msg>")
-def message(msg):
-  return f"<h1>{msg}</h1>"
+@app.route("/questionare", methods=["POST", "GET"])
+def questionare():
+  if request.method == "POST":
+    log_i += 1
+    quest = logic[log_i]
 
-def pre_processing(wrds):
-    wrds = wrds.lower()
-    wrds = re.sub('[%s]' % re.escape(string.punctuation), '', wrds)
-
-    stop_words = set(stopwords.words('english'))
-    wrds = " ".join([word for word in wrds.split() if word not in stop_words])
-    wrds = wrds.split()
-    
-    return wrds
-
+    ans = request.form[ans]
+  return ans
 
 
 if __name__ == "__main__":
