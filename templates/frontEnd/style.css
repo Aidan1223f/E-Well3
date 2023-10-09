@@ -3,11 +3,12 @@
     padding: 0;
 }
 .header{
-    min-height: 100vh;
+    min-height: 30vh;
     width: 100%;
-    background-image: linear-gradient(rgba(16, 33, 99, 0.7),rgba(16, 33, 99, 0.7)),url(images/eWellLogo.jpg);
+    background-image: linear-gradient(rgba(179, 153, 241, 0.7),rgba(165, 76, 168, 0.7)),url(images/eWellLogo.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
-
 }
+
+
