@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content = "with=device-width, initial-scale=1.0">
+        <title>E-Well: Home and Basic Information</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section class="header">
+       <nav>
+        <a href="newBase.html"><img src="images/eWellLogo.jpg"></a>
+        <div class="nav-links" id = "navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="">TEAM</a></li>
+                <li><a href="">REGISTRATION</a></li>
+                <li><a href="">EMERGENCY CARE</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+       </nav> 
+<div class="text-box">
+    <h1>E-Well, A Novel Approach to Mental Health</h1>
+    <p>With new AI integration, E-Well is able to help tackle a multitude of daily stressors.<br>Try it out for free.</p>
+    <a href=""class="hero-btn">Learn More</a>
+</div>
+
+    </section>
+<section class="mission">
+    <h1>Our Mission</h1>
+    <p>E-well focuses on key issues mental health issues pertaining to students and offers a practical solution to these problems.<br>We strive to give positive feedback, with our goal being to end the stigma against teen mental health advocacy.</p>
+
+
+</section>
+<!--JavaScript for Toggle menu mobile-->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </script>
+
+</body>
+</html>
