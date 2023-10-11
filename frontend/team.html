@@ -10,6 +10,75 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <!--home page head-->
+    <section class="team-header">
+       <nav>
+        <a href="newBase.html"><img src="images/eWellLogo.jpg"></a>
+        <div class="nav-links" id = "navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="newBase.html">HOME</a></li>
+                <li><a href="about.html" onclick="redirectPlace()">ABOUT</a></li>
+                <li><a href="team.html">TEAM</a></li>
+                <li><a href="registration.html">REGISTRATION</a></li>
+                <li><a href="emergencyCare.html">EMERGENCY CARE</a></li>
+                <li><a href="demo.html">DEMO</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+       </nav> 
+       <h1>Our Team</h1> 
+    </section>
+
+<section class="student-back">
+        <h1>Backend-Developer</h1>
+        <h3>Aidan-Nyugen-Tran</h3>
+</section>  
+<section class="student-front">
+        <h1>Frontend-Developer</h1>
+        <h3>Robert Flores</h3>
+</section>
+
+ 
+<!-----footer------>
+<section class="footer">
+    <h4>Socials and More</h4>
+    <p>High School Students who are attempting to make a big change on the world,<br>one line at a time.</p>
+    <div class="icons">
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin"></i>
+    </div>
+    <p>Made with HTML, CSS, and JavaScript</p> 
+</section>
+<script>
+    var navLinks = document.getElementById("navLinks");
     
+    function redirectPlace(){
+        window.location.href = "newBase.html"
+    }
+    function redirectPlace(){
+        window.location.href = "about.html";
+    }
+    function redirectPlace(){
+        window.location.href = "team.html";
+    }
+    function redirectPlace(){
+        window.location.href = "registration.html";
+    }
+    function redirectPlace(){
+        window.location.href = "emergencyCare.html";
+    }
+    function redirectPlace(){
+        window.location.href ="demo.html";
+    }
+
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+</script>
 </body>
 </html>

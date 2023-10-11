@@ -10,14 +10,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <!--home page head-->
     <section class="header">
        <nav>
         <a href="newBase.html"><img src="images/eWellLogo.jpg"></a>
         <div class="nav-links" id = "navLinks">
             <i class="fa fa-times" onclick="hideMenu()"></i>
             <ul>
-                <li><a href="">HOME</a></li>
-                <li><a href="about.html" onclick="redirectAbout()">ABOUT</a></li>
+                <li><a href="newBase.html">HOME</a></li>
+                <li><a href="about.html" onclick="redirectPlace()">ABOUT</a></li>
                 <li><a href="team.html">TEAM</a></li>
                 <li><a href="registration.html">REGISTRATION</a></li>
                 <li><a href="emergencyCare.html">EMERGENCY CARE</a></li>
@@ -29,33 +30,54 @@
 <div class="text-box">
     <h1>E-Well, A Novel Approach to Mental Health</h1>
     <p>With new AI integration, E-Well is able to help tackle a multitude of daily stressors.<br>Try it out for free.</p>
-    <a href=""class="hero-btn">Learn More</a>
+    <a href=""class="hero-btn" id="heroBtn">Learn More</a>
 </div>
-
     </section>
+    <!--mission-->
 <section class="mission">
     <h1>Our Mission</h1>
     <p>E-Well is a student-run mental health and wellness initiative for the purpose of cultivating a school environment of balanced students through combating the mental health stigma. <br>We strive to give positive feedback, with our goal being to end the stigma against teen mental health advocacy.</p>
-
-
 </section>
+<!--contact-->
+<section class="contact"> 
+    <h1>Questions, Comments, or Concerns?<br>Contact us today.</h1>
+    <a href="" class="hero-btn" id="heroBtn">CONTACT US</a>
+</section>
+
+<!-----footer------>
+<section class="footer">
+    <h4>Socials and More</h4>
+    <p>High School Students who are attempting to make a big change on the world,<br>one line at a time.</p>
+    <div class="icons">
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin"></i>
+    </div>
+    <p>Made with HTML, CSS, and JavaScript</p> 
+</section>
+
+
+
+
 <!--JavaScript for Toggle menu mobile and click redirection-->
     <script>
         var navLinks = document.getElementById("navLinks");
         
-        function redirectAbout(){
+        function redirectPlace(){
+            window.location.href = "newBase.html"
+        }
+        function redirectPlace(){
             window.location.href = "about.html";
         }
-        function redirectAbout(){
+        function redirectPlace(){
             window.location.href = "team.html";
         }
-        function redirectAbout(){
+        function redirectPlace(){
             window.location.href = "registration.html";
         }
-        function redirectAbout(){
+        function redirectPlace(){
             window.location.href = "emergencyCare.html";
         }
-        function redirectAbout(){
+        function redirectPlace(){
             window.location.href ="demo.html";
         }
 
@@ -67,6 +89,12 @@
             navLinks.style.right = "-200px";
         }
     </script>
-    
+    <script>
+        var heroBtn = documnet.getElementById("heroBtn");
+
+        function redirectPlace(){
+            window.location.href = ""
+        }
+    </script>
 </body>
 </html>

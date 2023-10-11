@@ -134,3 +134,121 @@ p{
     line-height: 22px;
     padding: 10px;
 }
+
+/*----- contact -------*/ 
+.contact{
+    margin: 100px auto;
+    width: 80%;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url();
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.contact h1{
+    color: #fff;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+@media(max-width: 700px){
+    .cta h1{
+        font-size: 24px;
+    }
+}
+
+/*---- Footer ------*/
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.footer h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.icons .fa{
+    color: #420e9c;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+/*------------------About Us Page ---------------*/
+
+.sub-header{
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/background.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+.sub-header h1{
+    margin-top: 100px;
+}
+
+.about-us{
+    width: 80%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+.about-col{
+    flex-basis: 48%;
+    padding: 30px 2px;
+}
+.about-col img{
+    width: 100%;
+}
+.about-col h1{
+    padding-top: 0;
+}
+.about-col p{
+    padding: 15px 0 25px;
+}
+
+.red-btn{
+    border: 1px solid #420e9c;
+    background: transparent;
+    color: #420e9c; 
+}
+.red-btn:hover{
+    color: #fff;
+}
+
+
+/*------- Team ------*/
+
+.team-header{
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url();
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+.team-header h1{
+    margin-top: 100px;
+}
+
+.student-back{
+    width: 75%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    text-align: left;
+}
+.student-front{
+    width: 75%;
+    margin: auto;
+    padding-top: 0px;
+    padding-bottom: 50px;
+    text-align: right;
+}
