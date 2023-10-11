@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content = "with=device-width, initial-scale=1.0">
+        <title>E-Well: Home and Basic Information</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section class="header">
+       <nav>
+        <a href="newBase.html"><img src="images/eWellLogo.jpg"></a>
+        <div class="nav-links" id = "navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="about.html" onclick="redirectAbout()">ABOUT</a></li>
+                <li><a href="team.html">TEAM</a></li>
+                <li><a href="registration.html">REGISTRATION</a></li>
+                <li><a href="emergencyCare.html">EMERGENCY CARE</a></li>
+                <li><a href="demo.html">DEMO</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+       </nav> 
+<div class="text-box">
+    <h1>E-Well, A Novel Approach to Mental Health</h1>
+    <p>With new AI integration, E-Well is able to help tackle a multitude of daily stressors.<br>Try it out for free.</p>
+    <a href=""class="hero-btn">Learn More</a>
+</div>
+
+    </section>
+<section class="mission">
+    <h1>Our Mission</h1>
+    <p>E-Well is a student-run mental health and wellness initiative for the purpose of cultivating a school environment of balanced students through combating the mental health stigma. <br>We strive to give positive feedback, with our goal being to end the stigma against teen mental health advocacy.</p>
+
+
+</section>
+<!--JavaScript for Toggle menu mobile and click redirection-->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        
+        function redirectAbout(){
+            window.location.href = "about.html";
+        }
+        function redirectAbout(){
+            window.location.href = "team.html";
+        }
+        function redirectAbout(){
+            window.location.href = "registration.html";
+        }
+        function redirectAbout(){
+            window.location.href = "emergencyCare.html";
+        }
+        function redirectAbout(){
+            window.location.href ="demo.html";
+        }
+
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </script>
+    
+</body>
+</html>
