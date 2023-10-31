@@ -5,6 +5,7 @@ import string
 from nltk.corpus import stopwords
 
 
+
 nltk.download('stopwords')
 
 def pre_processing(wrds):
@@ -18,15 +19,18 @@ def pre_processing(wrds):
     return wrds
 
 def sentiment_analysis(str):
-        if ("divorce" or "argument") in str:
-            print('true')
+        global problem
+        if ("divorce" or "divorced") in str:
+            return "divorce"
+        elif ("argument" or "argument with parents" or "argument with family" or "arguing") in str:
+            return"parental argument"
+        elif ("money" or "financial" or "finance" or "cash"):
+             return "finacial" 
         else:
             print('false')
 
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+# def followup_quest:
+
 
 
 # print(processed_situation)
