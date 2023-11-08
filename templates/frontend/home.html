@@ -1,30 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content = "with=device-width, initial-scale=1.0">
-        <title>E-Well: Home and Basic Information</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-</head>
-<body>
+{% block head %}  
+<link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+{% endblock %}
+
+{% block body %}
     <!--home page head-->
     <section class="header">
        <nav>
-        <a href="newBase.html"><img src="images/eWellLogo.jpg"></a>
+        <a href="home.html"><img src="{{ url_for('static', filename='images/eWellLogo.jpg') }}"> </a>
         <div class="nav-links" id = "navLinks">
             <i class="fa fa-times" onclick="hideMenu()"></i>
             <ul>
-                <li><a href="newBase.html">HOME</a></li>
-                <li><a href="about.html" onclick="redirectPlace()">ABOUT</a></li>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
                 <li><a href="team.html">TEAM</a></li>
                 <li><a href="registration.html">REGISTRATION</a></li>
                 <li><a href="emergencyCare.html">EMERGENCY CARE</a></li>
-                <li><a href="templates/index.html">DEMO</a></li>
+                <li><a href="{{url_for('login')}}">DEMO</a></li>
             </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -65,10 +58,10 @@
         var navLinks = document.getElementById("navLinks");
         
         function redirectPlace(){
-            window.location.href = "newBase.html"
+            window.location.href = "templates/frontend/newBase.html"
         }
         function redirectPlace(){
-            window.location.href = "about.html";
+            window.location.href = "templates/frontend/about.html";
         }
         function redirectPlace(){
             window.location.href = "team.html";
@@ -98,5 +91,4 @@
             window.location.href = ""
         }
     </script>
-</body>
-</html>
+{% endblock %}      

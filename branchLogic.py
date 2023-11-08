@@ -26,7 +26,7 @@ def sentiment_analysis(str):
             return"parental argument"
         elif ("money" or "financial" or "finance" or "cash") in str:
              return "finacial" 
-        elif ("grades" or "tests" or "assignments" or "homework") in str:
+        elif ("grades" or "tests" or "assignments" or "homework" or "school") in str:
              return "schoolwork" 
         else:
             print('Can you be a little more specific?')
@@ -59,25 +59,14 @@ resource_name = {
       "schoolwork": "California State Library Free tutoring program",
 }
 res_img = {
-      "divorce" : "src/brainfuse-gethomeworkhelp@600.jpg",
+      "this week" : "src/brainfuse-gethomeworkhelp@600.jpg",
      "parental_argument" : "",
      "finacial" : "",
      "schoolwork" : "src/brainfuse-gethomeworkhelp@600.jpg",
 }
-
-yes = {
-      "divorce" : "try talk to trusted friends and family about this issues. speaking with others is a sign of strength and they would be more than happy to help you",
-     "parental_argument" : "",
-     "finacial" : "",
-     "schoolwork" : "try talk to trusted friends and family about this issues. speaking with others is a sign of strength and they would be more than happy to help you",
+time_res = {
+      "this week" : "Take some time to think about this situation, there is no rush to opening up about it yet. However, when you are ready you should reach out to close friends and families for assistance",
+     "1-4 weeks" : "You might want to try talking to trusted friends and family soon. They can offer their own perspective and guidance to help you get through this",
+     "over 1 month" : "try talk to trusted friends and family about this issues. speaking with others is a sign of strength and they would be more than happy to help you",
 }
 
-def link_resource(str):
-     if ("divorce") in str:
-          return resources["divorce"]
-     if ("parental_argument"):
-          return resources["parental_argument"]
-     if ("finacial") in str:
-          return resources["finacial"]
-     if("schoolwork") in str:
-          return resources["schoolwork"]
