@@ -1,12 +1,37 @@
-{% extends "base.html" %}
-{% block head %} Login Page {% endblock %}
+{% extends 'base.html' %}
 
-{% block body %}
-<form action='#' method="post">
-    <p>Name: </p>
-    <p><input type="text" name="nm"/></p>
-    <p><input type="submit" value="submit"/></p>
+{% block head %} 
+<title>Login</title>
+<h1>Login</h1>
 
+<form action="#" method="post">
+<br>
+    <label for="school">Acount type:</label>
+    <select name="user_type" id="user_type">
+        <option value=" "> </option>
+        <option value="Student">Student</option>
+        <option value="Admin">Admin</option>
+      </select>
+<br>
+    <label for="name">name (first last):</label>
+    <input type="text" id="name" name="name"><br> 
+
+    <label for="name">Password:</label>
+    <input type="password" id="pw" name="pw"><br>
+
+    <label for="school">Choose your school:</label>
+    <select name="school" id="school">
+     <option value=" "> </option>
+     <option value="volvo">Eleanor Roosevelt</option>
+     <option value="saab">Centenial High School</option>
+     <option value="mercedes">Norco High School</option>
+     <option value="audi">Santiago</option>
+    </select>
+
+    <br>
+
+    <button type="submit">Submit</button> 
 </form>
+
 
 {% endblock %}

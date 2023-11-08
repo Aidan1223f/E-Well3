@@ -1,27 +1,47 @@
 {% extends 'base.html' %}
 
 {% block head %} 
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+.container{
+  display: inline-block;
+}
+
+.typed-out{
+  overflow: hidden;
+  border-right: .15em solid lavender;
+  white-space: nowrap;
+  animation: 
+  typing 1s steps(20, end) forwards;
+  width: 0;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 120% }
+  from { height: 0}
+  to {height: 100%}
+}
+</style>
+
+
 <title>E-Well registration and login page</title>
 <h1>E-Well</h1>
-
-<form action="#" method="post">
-    <label for="name">name (first last):</label>
-    <input type="text" id="name" name="name"><br><br> 
-
-    <label for="name">Age:</label>
-    <input type="text" id="age" name="age"><br><br> 
-
-    <label for="message">{{content}}</label>
-    <textarea id="message" name="message"></textarea>
-
-    <button type="submit">Submit</button> 
-</form>
-
-
 {% endblock %}
 
 
 
 {% block body %}
+<!-- <div container> 
+    <div class="typed-out">{{content}}</div>
+</div> -->
+<p>{{content}}</p>
+<br>
 
-{% endblock %}
+<form action="#" method="post">
+    <textarea id="message" name="message"></textarea>
+
+    <button type="submit">Submit</button> 
+</form>
+{% endblock %}  

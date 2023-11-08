@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<style>
+    .container {
+      display: flex;
+      align-items: left;
+      justify-content: left;
+    }
+
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 120%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+
+<title>E-Well admin page</title>
+<h1>admin portal</h1>
+{% endblock %}
+
+{% block body %}
+<div container>
+<table style="width:100%; margin-left: 10px; margin-right: 10px">
+    <tr>
+      <th>User</th>
+      <th>grade level</th>
+      <th>problem</th>
+      <th style="width: 20%">message</th>
+      <th>Time</th>
+      <th>communication</th>
+      <th>affect on School</th>
+      <th style="width: 10%">counselor message</th>
+    </tr>
+    <tr>
+      <td>John Smith</td>
+      <td>junior</td>
+      <td>Grades</td>
+      <td style="width: 40%">I am really struggling with my schoolwork. I just can't do well</td>
+      <td>4 weeks+</td>
+      <td>No one </td>
+      <td>Strong effect</td>
+      <td style="width: 30%">Can we set-up an in person meeting sometime</td>
+    </tr>
+    <!-- <tr>
+      <td>Centro comercial Moctezuma</td>
+      <td>Francisco Chang</td>
+      <td>Mexico</td>
+      <td>Centro comercial Moctezuma</td>
+      <td>Francisco Chang</td>
+      <td>Mexico</td>
+    </tr> -->
+  </table>
+</div>
+
+<!-- <p> {{person}}</p> -->
+{% endblock %}
