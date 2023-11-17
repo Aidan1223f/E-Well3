@@ -12,10 +12,12 @@ from nltk.corpus import stopwords
 nltk.download('stopwords')
 
 from branchLogic import sentiment_analysis, pre_processing, response, time_res, res_img, resource_name, resources
+db = SQLAlchemy()
 app = Flask(__name__, static_folder="static")
-app.secret_key = "bello"
+app.config['SECRET_KEY'] = 'secret-key'
+app.config['SQLALCHEMY_DATABASE_URL'] = 'sqlite:///db.sqlite'
 
-
+db.init_app(app)
 logic = ["How long have you been feeling like this? ", "Who have you talked to about this issue?", "test"] 
         
 
@@ -98,32 +100,33 @@ img = os.path.join('static', 'images')
 from flask_mail import Mail, Message
 mail = Mail(app)
 
-app.config['MAIL_SERVER']='sandbox.smtp.mailtrap.io'
+app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 2525
-app.config['MAIL_USERNAME'] = '17a1bb791dd546'
+app.config['MAIL_USERNAME'] = 'aidan.nt76@gmail.com'
 app.config['MAIL_PASSWORD'] = '6cc11eda3ccf92'
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
 
 def counselor_email(str):
-    msg = Message('Hello from the other side!', sender =   'peter@mailtrap.io', recipients = ['paul@mailtrap.io'])
-    msg.body = "Hey Paul, sending you this email from my Flask app, lmk if it works"
+    msg = Message('Hello from the other side!', sender ='noreply.demo.com', recipients = ['aidan.nt76@gmail.com'])
+    msg.body = str
     mail.send(msg)
+    return "Message Sent!"
 
-    return "Message sent!"
-    
 @app.route("/questionare", methods=["GET", "POST"])
 def questionare():  
     if request.method == "POST":    
         ans1 = request.form["inputs1"]
         ans2 = request.form["inputs2"]
         likert = request.form["likert"]
+        global counsmsg
         counsmsg = request.form["couns_message"]
 
         person["Time"] = ans1
         person["comn_w_others"] = ans2
         person["affect_on_school"] = likert
         person["counselor_msg"] = counsmsg
+        counselor_email(counsmsg)
 
         print(person)
 
