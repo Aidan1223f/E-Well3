@@ -3,6 +3,7 @@ from flask_restful import Api, Resource
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+import os
 import nltk
 import numpy as np
 import re 
@@ -92,7 +93,25 @@ def res():
 
 
 
+img = os.path.join('static', 'images')
 
+from flask_mail import Mail, Message
+mail = Mail(app)
+
+app.config['MAIL_SERVER']='sandbox.smtp.mailtrap.io'
+app.config['MAIL_PORT'] = 2525
+app.config['MAIL_USERNAME'] = '17a1bb791dd546'
+app.config['MAIL_PASSWORD'] = '6cc11eda3ccf92'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+
+def counselor_email(str):
+    msg = Message('Hello from the other side!', sender =   'peter@mailtrap.io', recipients = ['paul@mailtrap.io'])
+    msg.body = "Hey Paul, sending you this email from my Flask app, lmk if it works"
+    mail.send(msg)
+
+    return "Message sent!"
+    
 @app.route("/questionare", methods=["GET", "POST"])
 def questionare():  
     if request.method == "POST":    
@@ -110,12 +129,14 @@ def questionare():
 
         resource = resources[person["problem"]]
         resource_img = res_img[person["problem"]]
+        file = os.path.join(img, resource_img)
         final_res = time_res[person["Time"]]
         nm = resource_name[person["problem"]]
 
-        return render_template("finalres.html",  resource=resources, img=resource_img, name=nm,fr= final_res)
+        return render_template("finalres.html",  resource=resource, image=file, name=nm,final_res=final_res)
     else:
         return render_template('questionare.html')
+
 
 
 

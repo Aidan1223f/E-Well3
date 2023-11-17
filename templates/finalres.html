@@ -20,6 +20,7 @@
 {% block body %}
 <br>
 <ul>
+  <li>{{final_res}}</li>
   <li>Your situation has been going for a while, you need to reach out to others for help</li>
   <li> talking to trusted friends and family can offer different perspectives and resources to help your situation. Speaking with others is a sign of strength and they would be more than happy to help you</li>
   <li>Try reaching out teachers to explain your situation. Once they understand, they are likely willing to help you so you are successful in their classroom</li>
@@ -28,9 +29,9 @@
 <!-- <img src="hw.jpg"> -->
 <h1>Resources</h1>  
 
-  <a href="https://www.library.ca.gov/services/to-libraries/online-tutoring/#:~:text=The%20California%20State%20Library%20provides,using%20state%20curriculum%20and%20standards."> Free resources @ California State Library Free tutoring program  </a>
+  <a href="{{resource}}">{{name}} </a>
   <br> 
-  <img src="{{ url_for('static', filename='images/hw.jpg') }}" class="image" />
+  <img src="{{image}}">
 
 <br>
 <br> 
