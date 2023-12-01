@@ -37,10 +37,10 @@ person = {
 
 @app.route('/')
 def web():
-    return render_template("frontend/home.html")
+    return render_template("home.html")
 @app.route('/about')
 def about():
-    return render_template("frontend/about.html")
+    return render_template("about.html")
 
 
 @app.route('/demo', methods=["POST", "GET"])
