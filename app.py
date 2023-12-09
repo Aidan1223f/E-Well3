@@ -2,6 +2,7 @@ from flask import Flask, flash, render_template, session, url_for, redirect, req
 from flask_restful import Api, Resource
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+# from .routes import main
 
 import os
 import nltk
@@ -12,12 +13,15 @@ from nltk.corpus import stopwords
 nltk.download('stopwords')
 
 from branchLogic import sentiment_analysis, pre_processing, response, time_res, res_img, resource_name, resources
-db = SQLAlchemy()
-app = Flask(__name__, static_folder="static")
-app.config['SECRET_KEY'] = 'secret-key'
-app.config['SQLALCHEMY_DATABASE_URL'] = 'sqlite:///db.sqlite'
 
-db.init_app(app)
+app = Flask(__name__, static_folder="static")
+
+# db = SQLAlchemy()
+# app.config['SQLALCHEMY_DATABASE_URL'] = 'sqlite:///db.sqlite'
+# db.init_app(app)
+# app.register_blueprint(main)
+
+
 logic = ["How long have you been feeling like this? ", "Who have you talked to about this issue?", "test"] 
         
 
@@ -37,7 +41,7 @@ person = {
 
 @app.route('/')
 def web():
-    return render_template("home.html")
+    return render_template("index.html")
 @app.route('/about')
 def about():
     return render_template("about.html")
@@ -56,7 +60,7 @@ def login():
         if user_type == "Admin":
             return redirect(url_for("admin"))
         elif user_type == "Student":
-            return redirect(url_for("index"))
+            return redirect(url_for("branch"))
     else:
         return render_template('login.html')
 
@@ -65,8 +69,8 @@ def admin():
     p = person
     return render_template("admin.html", person=p)
 
-@app.route('/index', methods=["POST", "GET"])
-def index():
+@app.route('/branch', methods=["POST", "GET"])
+def branch():
     content =  "How could I be of assistance? Please give me a 3-5 sentence explanation of your current situation so I can get a better understanding."
     if request.method == "POST":
         message = request.form["message"]
@@ -81,7 +85,7 @@ def index():
         return redirect(url_for("res", result=results))
         # return redirect(url_for("questionare", quest=logic[1]))
     else:
-        return render_template('index.html', content=content)
+        return render_template('branch.html', content=content)
     
 results = "I'm really sorry to hear that you're feeling this way, and I want you to know that you're not alone. It's completely normal to face challenges in school, and it's okay to ask for help. You have a lot of potential, and I believe in your ability to overcome this. Together, we can work on finding solutions that will make things better for you. Remember, progress is a journey, and I'm here to support you every step of the way."
 @app.route("/res", methods=["GET", "POST"])
@@ -97,21 +101,7 @@ def res():
 
 img = os.path.join('static', 'images')
 
-from flask_mail import Mail, Message
-mail = Mail(app)
 
-app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT'] = 2525
-app.config['MAIL_USERNAME'] = 'aidan.nt76@gmail.com'
-app.config['MAIL_PASSWORD'] = '6cc11eda3ccf92'
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
-
-def counselor_email(str):
-    msg = Message('Hello from the other side!', sender ='noreply.demo.com', recipients = ['aidan.nt76@gmail.com'])
-    msg.body = str
-    mail.send(msg)
-    return "Message Sent!"
 
 @app.route("/questionare", methods=["GET", "POST"])
 def questionare():  
@@ -126,7 +116,6 @@ def questionare():
         person["comn_w_others"] = ans2
         person["affect_on_school"] = likert
         person["counselor_msg"] = counsmsg
-        counselor_email(counsmsg)
 
         print(person)
 
